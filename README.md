@@ -9,17 +9,17 @@ In this guide we will set up clean Debian server for Python and Django projects.
 Connect through SSH to remote Debian server and update repositories and install some initial needed packages:
 
 ```
-sudo apt-get update ; \
-sudo apt-get install -y vim mosh tmux htop git curl wget unzip zip gcc build-essential make
+sudo apt-get update ; \ Обновляем репозитрии
+sudo apt-get install -y vim mosh tmux htop git curl wget unzip zip gcc build-essential make  \ Устанавливаем начальный софт некий
 ```
 
 Configure SSH:
 
 ```
 sudo vim /etc/ssh/sshd_config
-    AllowUsers www
-    PermitRootLogin no
-    PasswordAuthentication no
+    AllowUsers www(имя юзера)
+    PermitRootLogin no  /какая-то мутная опасная хрень
+    PasswordAuthentication no /какая-то мутная опасная хрень
 ```
 
 Restart SSH server, change `www` user password:
@@ -32,7 +32,9 @@ sudo passwd www
 ## Init — must-have packages & ZSH
 
 ```
-sudo apt-get install -y zsh tree redis-server nginx zlib1g-dev libbz2-dev libreadline-dev llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev liblzma-dev python3-dev python-imaging python3-lxml libxslt-dev python-libxml2 python-libxslt1 libffi-dev libssl-dev python-dev gnumeric libsqlite3-dev libpq-dev libxml2-dev libxslt1-dev libjpeg-dev libfreetype6-dev libcurl4-openssl-dev supervisor
+sudo apt-get install -y zsh tree redis-server nginx zlib1g-dev libbz2-dev libreadline-dev llvm libncurses5-dev libncursesw5-dev xz-utils
+tk-dev liblzma-dev python3-dev python-imaging python3-lxml libxslt-dev python-libxml2 python-libxslt1 libffi-dev libssl-dev python-dev
+gnumeric libsqlite3-dev libpq-dev libxml2-dev libxslt1-dev libjpeg-dev libfreetype6-dev libcurl4-openssl-dev supervisor
 ```
 
 Install [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh):
